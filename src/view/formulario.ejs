@@ -1,1 +1,39 @@
 <%- include('partials/header') %>
+<main>
+        <div class="page">
+            <form th:action="@{/cadastro/atualizar}" method="POST" id="cadastrarForm" th:object="${cadastro}"
+                class="formLogin">
+    
+                <h1>Editar Cadastro Aluno</h1>
+    
+                <p>Digite os dados do Aluno que você deseja mudar</p>
+    
+                <label for="id">ID</label>
+                <input type="text" th:field="*{id}" placeholder="Digite o Id do Aluno" class="form-control" readonly />
+    
+                <label for="nome">Nome do Aluno</label>
+                <input th:field="*{nome}" placeholder="Digite o Nome do Aluno" type="text" name="nome" id="nome" />
+    
+                <label for="Idade">Idade</label>
+                <input th:field="*{idade}" placeholder="Digite a Idade do Aluno" type="text" name="valor" id="valor" />
+    
+                <label for="Curso" th:for="${#ids.next('curso')}">Curso</label>
+                <select th:field="*{curso}" name="curso" id="curso">
+                    <option value=""></option>
+                    <option value="ads">ADS</option>
+                    <option value="administracao">Administração</option>
+                    <option value="mecanica">Engenharia Mecânica</option>
+                    <option value="eletrica">Engenharia Elétrica</option>
+                    <option value="enfermagem">Enfermagem</option>
+                </select>
+    
+                <button type="submit" class="btn">
+                    Atualizar
+                </button>
+                <button th:href="@{/cadastro/listar}" type="submit" class="btn">
+                    Listar todos alunos
+                </button>
+            </form>
+        </div>
+</main>
+<%- include('partials/footer') %>
