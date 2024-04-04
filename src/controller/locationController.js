@@ -25,3 +25,12 @@ exports.getHome = async (req,res) => {
     }
 };
 
+exports.getForm= async (req,res) => {
+    try {
+        res.render("form");
+    } catch (err) {
+        res.status(500).json({ error: err.toString() });
+    }
+};
+
+
