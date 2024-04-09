@@ -4,35 +4,23 @@
             <!-- <form th:action="@{/cadastro/atualizar}" method="POST" id="cadastrarForm" th:object="${cadastro}"
                 class="formLogin"> -->
     
-                <h1>Editar Cadastro Aluno</h1>
+                <h1>Formulario de cadastro</h1>
     
-                <p>Digite os dados do Aluno que você deseja mudar</p>
+                <label for="id">Nome:</label>
+                <input type="text" th:field="*{id}" placeholder="Digite seu nome" class="form-control" readonly />
     
-                <label for="id">ID</label>
-                <input type="text" th:field="*{id}" placeholder="Digite o Id do Aluno" class="form-control" readonly />
+                <label for="nome">Emai:</label>
+                <input th:field="*{nome}" placeholder="Digite seu email" type="text" name="nome" id="nome" />
     
-                <label for="nome">Nome do Aluno</label>
-                <input th:field="*{nome}" placeholder="Digite o Nome do Aluno" type="text" name="nome" id="nome" />
-    
-                <label for="Idade">Idade</label>
-                <input th:field="*{idade}" placeholder="Digite a Idade do Aluno" type="text" name="valor" id="valor" />
-    
-                <label for="Curso" th:for="${#ids.next('curso')}">Curso</label>
-                <select th:field="*{curso}" name="curso" id="curso">
+                <label for="Estado" th:for="${#ids.next('estado')}">Escolha o Estado</label>
+                <select th:field="*{estado}" name="estado" id="estado">
                     <option value=""></option>
-                    <option value="ads">ADS</option>
-                    <option value="administracao">Administração</option>
-                    <option value="mecanica">Engenharia Mecânica</option>
-                    <option value="eletrica">Engenharia Elétrica</option>
-                    <option value="enfermagem">Enfermagem</option>
+                    <option value="sp">São Paulo</option>
+                    <option value="rj">Rio de Janeiro</option>
+                    <option value="parana">Paraná</option>
+                    <option value="minas">Minas Gerais</option>
+                    <option value="bahia">Bahia</option>
                 </select>
-    
-                <button type="submit" class="btn">
-                    Atualizar
-                </button>
-                <button th:href="@{/cadastro/listar}" type="submit" class="btn">
-                    Listar todos alunos
-                </button>
             </form>
         </div>
 </main>
