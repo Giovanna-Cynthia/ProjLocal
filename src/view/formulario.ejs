@@ -1,34 +1,90 @@
 <%- include('partials/header') %>
-<main>
-        <div class="page">
-            <!-- <form th:action="@{/cadastro/atualizar}" method="POST" id="cadastrarForm" th:object="${cadastro}"
-                class="formLogin"> -->
-    
-                <h1>Formulario de cadastro</h1>
-    <form method="post" action="/newcontact">
-        <label for="Estado" th:for="${#ids.next('estado')}">Escolha o Estado</label>
-        <select id="estado" name="estado" onchange="atualizarCidades()" required>
-            <option value="estado">Selecione um estado</option>
-            <option value="AM">São Paulo</option>
-            <option value="BA">Bahia</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="SP">São Paulo</option>
-        </select>
-
-                <label for="cidade">Cidades</label>
-                <select name="estado" id="estado" required>
-                    <option value=""></option>
-                    <option value="sp">São Paulo</option>
-                    <option value="rj">Rio de Janeiro</option>
-                    <option value="parana">Paraná</option>
-                    <option value="minas">Minas Gerais</option>
-                    <option value="bahia">Bahia</option>
-                </select>
-            </form>
-        </div>
-</main>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+</head>
+<body>
+ 
+    <h3>Cadastro de novo local</h3>
+    <div>
+        <form method="post"  action="/newconatct">
+            <label for="estado">Estados</label>
+            <select id="estado" name="estado" onchange="atualizarCidades()" required>
+                <option value="estado">Selecione um Estado</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="SP">São Paulo</option>
+            </select>
+ 
+            <label for="cidade">Cidades</label>
+            <select id="cidade" name="cidade" required>
+                <option value="cidade">Selecione um Estado primeiro</option>
+            </select>
+           
+            <label for="lugar">Bairro:</label>
+            <input type="text" id="lugar" name="endereco" placeholder="Seu Bairro..">
+ 
+            <input id="btn" type="submit" value="ENVIAR">
+        </form>
+    </div>
+ 
+    <script>
+        function atualizarCidades() {
+            var estadoSelecionado = document.getElementById("estado").value;
+            var selectCidades = document.getElementById("cidade");
+            selectCidades.innerHTML = ""; // Limpar cidades anteriores
+ 
+            if (estadoSelecionado === "AM") {
+                adicionarOpcao(selectCidades, "Manaus");
+                adicionarOpcao(selectCidades, "Parintins");
+                adicionarOpcao(selectCidades, "Itacoatiara");
+            } else if (estadoSelecionado === "BA") {
+                adicionarOpcao(selectCidades, "Salvador");
+                adicionarOpcao(selectCidades, "Feira de Santana");
+                adicionarOpcao(selectCidades, "Vitória da Conquista");
+            } else if (estadoSelecionado === "MG") {
+                adicionarOpcao(selectCidades, "Belo Horizonte");
+                adicionarOpcao(selectCidades, "Uberlândia");
+                adicionarOpcao(selectCidades, "Contagem");
+            } else if (estadoSelecionado === "PR") {
+                adicionarOpcao(selectCidades, "Curitiba");
+                adicionarOpcao(selectCidades, "Londrina");
+                adicionarOpcao(selectCidades, "Maringá");
+            } else if (estadoSelecionado === "PE") {
+                adicionarOpcao(selectCidades, "Recife");
+                adicionarOpcao(selectCidades, "Jaboatão dos Guararapes");
+                adicionarOpcao(selectCidades, "Olinda");
+            } else if (estadoSelecionado === "RJ") {
+                adicionarOpcao(selectCidades, "Rio de Janeiro");
+                adicionarOpcao(selectCidades, "Niterói");
+                adicionarOpcao(selectCidades, "São Gonçalo");
+            } else if (estadoSelecionado === "RS") {
+                adicionarOpcao(selectCidades, "Porto Alegre");
+                adicionarOpcao(selectCidades, "Caxias do Sul");
+                adicionarOpcao(selectCidades, "Pelotas");
+            } else if (estadoSelecionado === "SP") {
+                adicionarOpcao(selectCidades, "São Paulo");
+                adicionarOpcao(selectCidades, "Campinas");
+                adicionarOpcao(selectCidades, "Guarulhos");
+            }
+            // Adicione mais condições para outros estados, se necessário
+        }
+ 
+        function adicionarOpcao(select, texto) {
+            var option = document.createElement("option");
+            option.text = texto;
+            select.add(option);
+        }
+    </script>
+</body>
+</html>
+ 
 <%- include('partials/footer') %>
