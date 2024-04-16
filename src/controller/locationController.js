@@ -33,4 +33,10 @@ exports.getForm= async (req,res) => {
     }
 };
 
-
+exports.newContact= async (req,res) => {
+    try {
+        res.render("newContact");
+    } catch (err) {
+        res.status(500).json({ error: err.toString() });
+    }
+};
