@@ -9,5 +9,7 @@ router.get('/home',locationController.getHome);
 router.get('/location', locationController.getAllLocation);
 router.get('/formulario',locationController.getForm);
 router.get('/newcontact',locationController.newEstado);
+router.post('/newcontact', locationController.newContact);
+
 
 module.exports = router;
