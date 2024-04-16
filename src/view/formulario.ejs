@@ -5,15 +5,22 @@
                 class="formLogin"> -->
     
                 <h1>Formulario de cadastro</h1>
-    
-                <label for="id">Nome:</label>
-                <input type="text" th:field="*{id}" placeholder="Digite seu nome" class="form-control" readonly />
-    
-                <label for="nome">Emai:</label>
-                <input th:field="*{nome}" placeholder="Digite seu email" type="text" name="nome" id="nome" />
-    
-                <label for="Estado" th:for="${#ids.next('estado')}">Escolha o Estado</label>
-                <select th:field="*{estado}" name="estado" id="estado">
+    <form method="post" action="/newcontact">
+        <label for="Estado" th:for="${#ids.next('estado')}">Escolha o Estado</label>
+        <select id="estado" name="estado" onchange="atualizarCidades()" required>
+            <option value="estado">Selecione um estado</option>
+            <option value="AM">São Paulo</option>
+            <option value="BA">Bahia</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="SP">São Paulo</option>
+        </select>
+
+                <label for="cidade">Cidades</label>
+                <select name="estado" id="estado" required>
                     <option value=""></option>
                     <option value="sp">São Paulo</option>
                     <option value="rj">Rio de Janeiro</option>

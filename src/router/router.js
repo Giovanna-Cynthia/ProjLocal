@@ -8,5 +8,6 @@ router.get('/contato', locationController.getContact);
 router.get('/home',locationController.getHome);
 router.get('/location', locationController.getAllLocation);
 router.get('/formulario',locationController.getForm);
+router.get('/newcontact',locationController.newEstado);
 
 module.exports = router;
