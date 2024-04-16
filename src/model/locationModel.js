@@ -34,6 +34,11 @@ class locationModel{
         const locations = await this.getLocation();
         return locations;
     }
+    
+    static async getLocationById() {
+        const locations = await this.getLocation();
+        return locations;
+    }
 }
 
 module.exports = locationModel;
