@@ -35,9 +35,9 @@ class locationModel{
         return locations;
     }
     
-    static async getLocationById() {
-        const locations = await this.getLocation();
-        return locations;
+    static async getnewContactById() {
+        const newContact = await this.getnewContact();
+        return newContact;
     }
 }
 
