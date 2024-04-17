@@ -39,6 +39,8 @@ class locationModel{
         const newContact = await this.getnewContact();
         return newContact;
     }
+
+
 }
 
 module.exports = locationModel;
